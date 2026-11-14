@@ -1,0 +1,23 @@
+[Unit]
+Description=ESP32-S3 AI Agent FastAPI server
+After=network.target
+
+[Service]
+Type=simple
+User=esp32agent
+Group=esp32agent
+WorkingDirectory=/opt/esp32-agent/server
+Environment=PYTHONUNBUFFERED=1
+EnvironmentFile=-/etc/esp32-agent/server.env
+# 先在该 Python 环境安装 server/requirements.txt。
+# 必须关闭访问日志，避免 WS query 中的设备令牌被写入日志。
+ExecStart=/usr/bin/python3 -m uvicorn app.main:create_app --factory --host 127.0.0.1 --port 8781 --no-access-log
+Restart=on-failure
+RestartSec=3
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ReadWritePaths=/opt/esp32-agent/server/data
+
+[Install]
+WantedBy=multi-user.target

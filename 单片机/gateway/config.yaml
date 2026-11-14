@@ -1,0 +1,28 @@
+server:
+  host: 0.0.0.0
+  port: 8765
+  mode: echo            # echo = 原样回放(M2 闭环) | voice = ASR->LLM->TTS(M3/M4)
+
+audio:
+  in_rate: 16000
+  out_rate: 24000
+  frame_ms: 40
+  dump_wav: true        # 上行音频落盘到 logs/，方便 M1 对比听感
+
+asr:
+  provider: mock        # mock | aliyun
+
+tts:
+  provider: mock        # mock | aliyun
+  voice: zh-CN-XiaoxiaoNeural
+
+llm:
+  provider: xiaoling      # xiaoling = 直接对话小綾（dsh-suite）| openai = 任意 OpenAI 兼容接口
+  base_url: http://127.0.0.1:8010
+  to: 小綾                # 发给谁（小綾的值班应答面）
+  api_key: PUT_YOUR_KEY_HERE
+  model: deepseek-chat
+  max_tokens: 300
+  system: |
+    你是一个桌面小机器人，说话简短口语化，每次回答不超过 40 个字。
+    不要使用 Markdown、列表或表情符号。

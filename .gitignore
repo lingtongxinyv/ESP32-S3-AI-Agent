@@ -1,0 +1,79 @@
+# Local credentials and signing material
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.keystore
+*.jks
+local.properties
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+*.egg-info/
+.coverage
+htmlcov/
+
+# Native, firmware and desktop builds
+build/
+dist/
+managed_components/
+sdkconfig
+
+# Android / Gradle
+.gradle/
+*.apk
+*.aab
+*.iml
+.idea/
+
+# Editors and operating systems
+.vscode/
+.DS_Store
+Thumbs.db
+*.swp
+
+# Runtime data and diagnostics
+*.log
+*.db
+*.db-*
+server/data/
+.screenshots/
+.trae/
+.uploads/
+
+# Backups, temporary files and local archives
+*.bak
+*.old
+*.tmp
+*.zip
+
+# Local third-party checkout symlink
+/xiaozhi-esp32
+
+# Private development records: reviewed, but not published verbatim
+/开发日志.md
+/Handoff-*.md
+/Review Archive and Handoff Docs.md
+/debug-ota-rollback-evidence.md
+
+# Superseded or unofficial firmware images
+/firmware_idf/artifacts/esp32_s3_ai_agent.bin
+
+# Legacy prototype reference dumps, recordings and invalid download stub
+/单片机/HANDOVER.md
+/单片机/AI机器人开发方案.md
+/单片机/.screenshots/
+/单片机/1789460946937436/
+/单片机/audio_module_ref/
+/单片机/gateway/uploads/
+/单片机/gateway/voices/
+/单片机/mic16_direct.wav
+/单片机/mic32_fixed.wav
+/单片机/raw16.bin
+/单片机/raw32.bin
+/单片机/urequests.py
